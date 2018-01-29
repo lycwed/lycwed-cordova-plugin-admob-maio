@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin id="lycwed-cordova-plugin-admob-maio" version="1.0.0"
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <name>lycwed-cordova-plugin-admob-maio</name>
+    <description>Cordova AdMob Mediation Plugin for Maio</description>
+
+    <engines>
+        <engine name="cordova" version=">=3" />
+    </engines>
+
+    <platform name="android">
+        <framework src="com.google.android.gms:play-services-ads:11.8.0" />
+        <framework src="com.maio:android-sdk:1.0.7" />
+        <framework src="com.google.ads.mediation:maio:1.0.7.0" />
+
+        <!-- Prevents compilation error: https://developer.android.com/studio/build/multidex.html -->
+        <!-- when add additional mediation plugins -->
+        <dependency id="cordova-plugin-multidex" />
+    </platform>
+
+    <platform name="ios">
+        <pods-config ios-min-version="9.0" use-frameworks="true" />
+        <pod id="GoogleMobileAdsMediationMaio" version="1.2.18.0" />
+
+        <!-- Prevents compilation failures when using pod's id with additional mediations plugins -->
+        <dependency id="cordova-plugin-cocoapod-support" />
+    </platform>
+</plugin>
